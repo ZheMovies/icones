@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ícones Futuristas</title>
+  <style>
+    :root {
+      --cor-principal: #141414;
+      --cor-secundaria: #FF69B4;
+      --cor-terciaria: #00FFEA;
+    }
+    body {
+      background-color: var(--cor-principal);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      perspective: 1000px;
+    }
+    .icon {
+      font-size: 100px;
+      color: var(--cor-terciaria);
+      transition: transform 0.2s ease-in-out;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      padding: 20px;
+    }
+    .icon:hover {
+      transform: scale(1.2) rotateY(180deg);
+      animation: pulse 0.5s ease-in-out;
+    }
+    .icon:active {
+      transform: scale(1.2) rotateY(180deg);
+      color: var(--cor-secundaria);
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        color: var(--cor-terciaria);
+      }
+      50% {
+        transform: scale(1.2) rotateY(180deg);
+        color: var(--cor-secundaria);
+      }
+      100% {
+        transform: scale(1);
+        color: var(--cor-terciaria);
+      }
+    }
+    .legend {
+      color: var(--cor-terciaria);
+      font-size: 18px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .container {
+        gap: 10px;
+      }
+      .icon {
+        font-size: 80px;
+      }
+      .legend {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        gap: 5px;
+      }
+      .icon {
+        font-size: 60px;
+      }
+      .legend {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="icon" onclick="openPage('https://example.com/canais')" ontouchstart="openPage('https://example.com/canais')" aria-label="Ícone de canais" role="button">🎨</div>
+      <div class="legend">Animes e Desenhos</div>
+    </div>
+    <div>
+      <div class="icon" onclick="openPage('https://example.com/filmes')" ontouchstart="openPage('https://example.com/filmes')" aria-label="Ícone de filmes" role="button">🎬</div>
+      <div class="legend">Filmes</div>
+    </div>
+    <div>
+      <div class="icon" onclick="openPage('https://example.com/series')" ontouchstart="openPage('https://example.com/series')" aria-label="Ícone de séries" role="button">🎭</div>
+      <div class="legend">Séries</div>
+    </div>
+  </div>
+  <script>
+    function openPage(url) {
+      try {
+        window.location.href = url;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
