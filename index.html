@@ -91,17 +91,20 @@
 <body>
   <div class="container">
     <div>
-      <div class="icon" onclick="openPage('https://example.com/canais')" ontouchstart="openPage('https://example.com/canais')" aria-label="Ícone de canais" role="button">🎨</div>
+      <div class="icon" onclick="openPage('https://example.com/animes-desenhos')" ontouchstart="openPage('https://example.com/animes-desenhos')" aria-label="Ícone de animes e desenhos" role="button">🎨</div>
       <div class="legend">Animes e Desenhos</div>
     </div>
     <div>
-      <div class="icon" onclick="openPage('https://zhemovies.github.io/Filmes/')" ontouchstart="openPage('https://example.com/filmes')" aria-label="Ícone de filmes" role="button">🎬</div>
+      <div class="icon" onclick="openPage('https://example.com/filmes')" ontouchstart="openPage('https://example.com/filmes')" aria-label="Ícone de filmes" role="button">🎬</div>
       <div class="legend">Filmes</div>
     </div>
     <div>
       <div class="icon" onclick="openPage('https://example.com/series')" ontouchstart="openPage('https://example.com/series')" aria-label="Ícone de séries" role="button">🎭</div>
       <div class="legend">Séries</div>
     </div>
+  </div>
+  <div id="mensagem-offline" style="display: none; color: #fff; font-size: 24px; text-align: center; padding: 20px;">
+    Você está offline. Por favor, verifique sua conexão com a internet.
   </div>
   <script>
     function openPage(url) {
@@ -110,6 +113,18 @@
       } catch (error) {
         console.error(error);
       }
+    }
+
+    window.addEventListener('online', function() {
+      document.getElementById('mensagem-offline').style.display = 'none';
+    });
+
+    window.addEventListener('offline', function() {
+      document.getElementById('mensagem-offline').style.display = 'block';
+    });
+
+    if (!navigator.onLine) {
+      document.getElementById('mensagem-offline').style.display = 'block';
     }
   </script>
 </body>
